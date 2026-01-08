@@ -4,20 +4,19 @@ class Program
 {
     static void Main(string[] args)
     {
+
         int lastDigit = 0; 
         Console.WriteLine("What is your grade percentage?");
         string gradePercentage = Console.ReadLine();
         double grade = double.Parse(gradePercentage);
         string letterGrade = "";
+
         if (grade >= 90)
         {
             letterGrade = "A";
             lastDigit = (int)grade % 10; 
-            if (lastDigit >= 7 && grade < 100)
-            {   
-                letterGrade += "+";
-            }
-            else if (lastDigit < 3)
+
+             if (lastDigit < 3)
             {
                 letterGrade += "-";
             }
@@ -65,18 +64,11 @@ class Program
         else
         {
             letterGrade = "F";
-            lastDigit = (int)grade % 10; 
-            if (lastDigit >= 7 && grade < 100)
-            {   
-                letterGrade += "+";
-            }
-            else if (lastDigit < 3)
-            {
-                letterGrade += "-";
-            }
+
         }
+
         Console.WriteLine($"Your grade is {letterGrade}.");
-        if( letterGrade == "A" || letterGrade == "B" || letterGrade == "C")
+        if( grade >= 70 )
         {
             Console.WriteLine("Congratulations! You passed the course!");
         }
