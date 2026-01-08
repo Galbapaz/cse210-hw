@@ -30,7 +30,7 @@
         },
 
         {
-            "name": "Week 01: C# Exercise 2",
+           "name": "Week 01: C# Exercise 2",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build-week01-Exercise2",
