@@ -3,9 +3,6 @@ using System.Threading.Tasks.Dataflow;
 using Resumes;
 using System.Collections.Generic;
 
-
-
-
 class Program
 {
     static void Main(string[] args)
@@ -25,7 +22,7 @@ class Program
 
 
             Resume myResume = new Resume();
-            myResume._name = "Allison Rose";
+            myResume._name = "Gabriel Alba";
 
             myResume._jobs.Add(job1);
             myResume._jobs.Add(job2);
