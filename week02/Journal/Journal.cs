@@ -17,7 +17,12 @@ public class Journal
             entry.Display();
         }
         
-    }
+    }  
+//The journal now saves and loads entries in CSV format, with each entry
+//including the date, prompt, and user response. This allows the file
+//to be opened in Excel easily. Quotation marks are used to handle commas
+//or special characters in the text, so all entries are saved correctly.
+
     public void SaveToFile(string file)
     {
         using (StreamWriter outputFile = new StreamWriter(file))
