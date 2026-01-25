@@ -21,11 +21,19 @@ public class Journal
     public void SaveToFile(string file)
     {
         using (StreamWriter outputFile = new StreamWriter(file))
-        {
-            foreach (Entry entry in _entries)
-            {
-                outputFile.WriteLine($"{entry._date}|{entry._promptText}|{entry._entryText}");
-            }
+        {  
+          outputFile.WriteLine("\"Date\",\"Prompt\",\"Entry\"");
+
+          foreach (Entry entry in _entries)
+          {
+            
+            string date = entry._date.Replace("\"", "\"\"");
+            string prompt = entry._promptText.Replace("\"", "\"\"");
+            string text = entry._entryText.Replace("\"", "\"\"");
+
+            outputFile.WriteLine($"\"{date}\",\"{prompt}\",\"{text}\"");
+          }
+
         }
         
     }
@@ -35,17 +43,25 @@ public class Journal
 
         string[] lines = File.ReadAllLines(file);
 
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split("|");
+   
+       for (int i = 1; i < lines.Length; i++)
+      {
+        string line = lines[i];
+        
+        string[] parts = line.Split("\",\"");
 
-            Entry entry = new Entry();
-            entry._date = parts[0];
-            entry._promptText = parts[1];
-            entry._entryText = parts[2];
+        string date = parts[0].TrimStart('"').TrimEnd('"');
+        string prompt = parts[1].TrimStart('"').TrimEnd('"');
+        string text = parts[2].TrimStart('"').TrimEnd('"');
 
-            _entries.Add(entry);
-        }
+        Entry entry = new Entry();
+        entry._date = date;
+        entry._promptText = prompt;
+        entry._entryText = text;
+
+        _entries.Add(entry);
+       }
+        
         
     }
 }

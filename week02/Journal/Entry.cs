@@ -7,6 +7,7 @@ public class Entry
     public string _promptText;
     public string _entryText; 
 
+
     public void Display()
     {
         Console.WriteLine($"Date: {_date}");

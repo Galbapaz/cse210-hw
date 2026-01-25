@@ -44,15 +44,17 @@ class Program
                     break;
 
                 case "3":
-                    Console.Write("Enter filename: ");
-                    string loadFile = Console.ReadLine();
-                    theJournal.LoadFromFile(loadFile);
-                    break;
+                   Console.Write("Enter filename to load (with .csv): ");
+                   string loadFile = Console.ReadLine();
+                   theJournal.LoadFromFile(loadFile);
+                   Console.WriteLine("Journal loaded from CSV!");
+                   break;
 
                 case "4":
-                    Console.Write("Enter filename: ");
+                    Console.Write("Enter filename to save (with .csv): ");
                     string saveFile = Console.ReadLine();
                     theJournal.SaveToFile(saveFile);
+                    Console.WriteLine("Journal saved as CSV!");
                     break;
 
                 case "5":
