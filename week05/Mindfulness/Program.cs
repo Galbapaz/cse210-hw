@@ -4,6 +4,16 @@ class Program
 {
     static void Main(string[] args)
     {
+        /*
+        STRETCH CHALLENGES
+
+        To exceed the basic requirements, I added an improved breathing animation.
+        Instead of only showing a countdown, the breathing activity now displays
+        a visual animation that grows during inhale and shrinks during exhale.
+        This creates a smoother and more realistic mindfulness experience.
+        */
+
+
         string choice = "";
 
         while (choice != "4")
