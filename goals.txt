@@ -1,0 +1,2 @@
+10
+SimpleGoal:Do exercise,50 push ups every day ,10,True
