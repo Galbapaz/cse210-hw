@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Scripture
 {
@@ -19,38 +20,44 @@ public class Scripture
             _words.Add(new Word(part));
         }
     }
-
     public void HideRandomWords(int numberToHide)
     {
-        for (int i = 0; i < numberToHide; i++)
+        var visibleWords = _words.Where(w => !w.IsHidden()).ToList();
+
+        for (int i = 0; i < numberToHide && visibleWords.Count > 0; i++)
         {
-            int index = _random.Next(_words.Count);
-            _words[index].Hide();
+            int index = _random.Next(visibleWords.Count);
+            visibleWords[index].Hide();
+            visibleWords.RemoveAt(index);
         }
     }
 
     public string GetDisplayText()
     {
-        string displayText = _reference.GetDisplayText() + " ";
+        string text = _reference.GetDisplayText() + "\n\n";
 
         foreach (Word word in _words)
         {
-            displayText += word.GetDisplayText() + " ";
+            text += word.GetDisplayText() + " ";
         }
 
-        return displayText;
+        return text.Trim();
+    }
+
+    public string GetOriginalText()
+    {
+        string text = "";
+
+        foreach (Word word in _words)
+        {
+            text += word.GetOriginalText() + " ";
+        }
+
+        return text.Trim();
     }
 
     public bool IsCompletelyHidden()
     {
-        foreach (Word word in _words)
-        {
-            if (!word.IsHidden())
-            {
-                return false;
-            }
-        }
-
-        return true;
+        return _words.All(w => w.IsHidden());
     }
 }
