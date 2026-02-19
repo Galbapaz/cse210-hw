@@ -5,6 +5,16 @@ class Program
 
     static void Main(string[] args)
     {
+            /*
+         EXCEEDING REQUIREMENTS:
+
+         1. Progressive difficulty: the number of hidden words increases each round.
+         2. After all words are hidden, the user must type the scripture from memory.
+         3. The program compares the user’s attempt with the original scripture.
+         4. A timer tracks how long the memorization process takes.
+           */
+
+
         Reference reference = new Reference("Proverbs", 3, 5, 6);
 
         Scripture scripture = new Scripture(reference,
