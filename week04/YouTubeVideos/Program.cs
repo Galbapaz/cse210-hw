@@ -5,7 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Order 1 - USA
+       
         Address address1 = new Address("123 Main St", "New York", "NY", "USA");
         Customer customer1 = new Customer("John Smith", address1);
 
@@ -14,7 +14,7 @@ class Program
         order1.AddProduct(new Product("Laptop", "A100", 1200, 1));
         order1.AddProduct(new Product("Mouse", "B200", 25, 2));
 
-        // Order 2 - International
+        
         Address address2 = new Address("456 Central Ave", "Toronto", "ON", "Canada");
         Customer customer2 = new Customer("Maria Lopez", address2);
 

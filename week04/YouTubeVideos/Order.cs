@@ -24,7 +24,7 @@ public class Order
             total += product.GetTotalCost();
         }
 
-        // Shipping cost
+      
         if (_customer.LivesInUSA())
         {
             total += 5;
